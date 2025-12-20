@@ -1,0 +1,3017 @@
+#01_Functions.ipynb
+
+
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "7NawfbfOjUEM"
+   },
+   "source": [
+    "# Function Practice Exercises\n",
+    "\n",
+    "Problems are arranged in increasing difficulty:\n",
+    "* Warmup - these can be solved using basic comparisons and methods\n",
+    "* Level 1 - these may involve if/then conditional statements and simple methods\n",
+    "* Level 2 - these may require iterating over sequences, usually with some kind of loop\n",
+    "* Challenging - these will take some creativity to solve"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "ySDTV9yvjUEM"
+   },
+   "source": [
+    "## WARMUP SECTION:"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "iBUr9po4jUEN"
+   },
+   "source": [
+    "#### LESSER OF TWO EVENS: Write a function that returns the lesser of two given numbers *if* both numbers are even, but returns the greater if one or both numbers are odd\n",
+    "    lesser_of_two_evens(2,4) --> 2\n",
+    "    lesser_of_two_evens(2,5) --> 5"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "Zcq8DAp3j0UB"
+   },
+   "outputs": [],
+   "source": [
+    "def lesser_of_two_evens():\n",
+    "if a % 2 == 0 and b % 2 == 0:\n",
+    "    return min(a, b)\n",
+    "else:\n",
+    "return max(a, b)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "Q6uFwgLLjUEN",
+    "outputId": "9b041e26-8c89-44fa-8e7a-7b2a7a1e1d37"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "2\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Check\n",
+    "lesser_of_two_evens(2,4)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "v2T3eBSgjUEO",
+    "outputId": "341d5f7a-f0bb-434a-b2ae-fb42413e2362"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "5\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Check\n",
+    "lesser_of_two_evens(2,5)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "5qZgqPfrjUEO"
+   },
+   "source": [
+    "#### ANIMAL CRACKERS: Write a function takes a two-word string and returns True if both words begin with same letter\n",
+    "    animal_crackers('Levelheaded Llama') --> True\n",
+    "    animal_crackers('Crazy Kangaroo') --> False"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "G39k5y2EjUEO"
+   },
+   "outputs": [],
+   "source": [
+    "def animal_crackers(text):\n",
+    "words = text.lower().split()\n",
+    "return words[0][0] == words[1][0]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "ulwh_c6djUEO",
+    "outputId": "548fb955-c5df-42e5-b3da-e155dceeac30"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "True\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Check\n",
+    "animal_crackers('Levelheaded Llama')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "zRaRsfCIjUEO",
+    "outputId": "405e67b2-b998-4217-a2b6-efa6e76305f6"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "False\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Check\n",
+    "animal_crackers('Crazy Kangaroo')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "8n8MRPB6jUEO"
+   },
+   "source": [
+    "#### MAKES TWENTY: Given two integers, return True if the sum of the integers is 20 *or* if one of the integers is 20. If not, return False\n",
+    "\n",
+    "    makes_twenty(20,10) --> True\n",
+    "    makes_twenty(12,8) --> True\n",
+    "    makes_twenty(2,3) --> False"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "gCLaspjojUEP",
+    "outputId": "76c3cd78-bc8e-40c9-b806-20283f40cc74"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "True\n"
+     ]
+    }
+   ],
+   "source": [
+    "def makes_twenty(n1,n2):\n",
+    "return n1 == 20 or n2 == 20 or n1 + n2 == 20"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "x7GUJDirjUEP",
+    "outputId": "4e14a6c8-0110-4708-9e48-75fe8bf86e7b"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "True\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Check\n",
+    "makes_twenty(20,10)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "GOUgDASFjUEP",
+    "outputId": "71ecc6f0-cca8-4d3c-fe74-0ae7d6ce76f7"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "False\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Check\n",
+    "makes_twenty(2,3)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "EpqQzPZDjUEP"
+   },
+   "source": [
+    "# LEVEL 1 PROBLEMS"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "cfsy0GJmjUEP"
+   },
+   "source": [
+    "#### OLD MACDONALD: Write a function that capitalizes the first and fourth letters of a name\n",
+    "     \n",
+    "    old_macdonald('macdonald') --> MacDonald\n",
+    "    \n",
+    "Note: `'macdonald'.capitalize()` returns `'Macdonald'`"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "Pp-nydtjjUEP"
+   },
+   "outputs": [],
+   "source": [
+    "def old_macdonald(name):\n",
+    "return name[:3].capitalize() + name[3:].capitalize()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "pfzFuzhejUEP",
+    "outputId": "2e2dc3f8-993a-4b14-f560-5fbaea37aa54"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "MacDonald\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Check\n",
+    "old_macdonald('macdonald')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "20mc1qH_jUEQ"
+   },
+   "source": [
+    "#### MASTER YODA: Given a sentence, return a sentence with the words reversed\n",
+    "\n",
+    "    master_yoda('I am home') --> 'home am I'\n",
+    "    master_yoda('We are ready') --> 'ready are We'\n",
+    "    \n",
+    "Note: The .join() method may be useful here. The .join() method allows you to join together strings in a list with some connector string. For example, some uses of the .join() method:\n",
+    "\n",
+    "    >>> \"--\".join(['a','b','c'])\n",
+    "    >>> 'a--b--c'\n",
+    "\n",
+    "This means if you had a list of words you wanted to turn back into a sentence, you could just join them with a single space string:\n",
+    "\n",
+    "    >>> \" \".join(['Hello','world'])\n",
+    "    >>> \"Hello world\""
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "tYu0X5TujUEQ"
+   },
+   "outputs": [],
+   "source": [
+    "def master_yoda(text):\n",
+    "return \" \".join(text.split()[::-1])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "ZROUyO4ojUEQ",
+    "outputId": "4e8c38a3-56ba-43a9-dc0b-58a6fe5e2736"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "home am I\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Check\n",
+    "master_yoda('I am home')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "emoe1KC-jUEQ",
+    "outputId": "a4b0780d-6b62-4d8e-b91c-b26dd823b288"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "ready are We\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Check\n",
+    "master_yoda('We are ready')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "U8cixlt2jUEQ"
+   },
+   "source": [
+    "#### ALMOST THERE: Given an integer n, return True if n is within 10 of either 100 or 200\n",
+    "\n",
+    "    almost_there(90) --> True\n",
+    "    almost_there(104) --> True\n",
+    "    almost_there(150) --> False\n",
+    "    almost_there(209) --> True\n",
+    "    \n",
+    "NOTE: `abs(num)` returns the absolute value of a number"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "EgUPfTbMjUEQ"
+   },
+   "outputs": [],
+   "source": [
+    "def almost_there(n):\n",
+    "return abs(100 - n) <= 10 or abs(200 - n) <= 10"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "Y3GrFZnajUEQ",
+    "outputId": "815bd87f-43d4-44d5-f6ba-94f8c9b7e28a"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "True\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Check\n",
+    "almost_there(104)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "Ez2ZksW9jUEQ",
+    "outputId": "8f73bc15-8e62-48a2-f604-ef39b7e4acff"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "False\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Check\n",
+    "almost_there(150)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "6eHhQ8QdjUER",
+    "outputId": "aaa86c61-93e5-43c0-dddb-56e1e66cb0f3"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "True\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Check\n",
+    "almost_there(209)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "lBIwuNiujUER"
+   },
+   "source": [
+    "# LEVEL 2 PROBLEMS"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "MZZtez0tjUER"
+   },
+   "source": [
+    "#### FIND 33:\n",
+    "\n",
+    "Given a list of ints, return True if the array contains a 3 next to a 3 somewhere.\n",
+    "\n",
+    "    has_33([1, 3, 3]) → True\n",
+    "    has_33([1, 3, 1, 3]) → False\n",
+    "    has_33([3, 1, 3]) → False"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "7D_rkXZxjUER"
+   },
+   "outputs": [],
+   "source": [
+    "def has_33(nums):\n",
+    "for i in range(len(nums) - 1):\n",
+    "    if nums[i] == 3 and nums[i + 1] == 3:\n",
+    "return True\n",
+    "return False"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "n2CtUKy9jUER",
+    "outputId": "d5294475-a29a-4ad2-e79d-916cbc02a2c8"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "True\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Check\n",
+    "has_33([1, 3, 3])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "tuGXl7PRjUER",
+    "outputId": "bbde3ea6-b29b-4ee3-e586-a236d86c1a20"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "False\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Check\n",
+    "has_33([1, 3, 1, 3])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "wS3epvMujUES",
+    "outputId": "d2cfbe0c-5834-4c8f-c157-5728a7795b4f"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "False\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Check\n",
+    "has_33([3, 1, 3])"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "bnd59fndjUES"
+   },
+   "source": [
+    "#### PAPER DOLL: Given a string, return a string where for every character in the original there are three characters\n",
+    "    paper_doll('Hello') --> 'HHHeeellllllooo'\n",
+    "    paper_doll('Mississippi') --> 'MMMiiissssssiiippppppiii'"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "Xo1JGfE7jUES"
+   },
+   "outputs": [],
+   "source": [
+    "def paper_doll(text):\n",
+    "result = \"\"\n",
+    "for char in text:\n",
+    "result += char * 3\n",
+    "return result\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "SweQC9fRjUES",
+    "outputId": "e89779e0-5fe2-46a3-f06d-c44f8bbdbf5c"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "HHHeeellllllooo\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Check\n",
+    "paper_doll('Hello')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "pgZ75u8ujUES",
+    "outputId": "f418f853-1b0e-4d97-a02b-6d6341e2d9ce"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "MMMiiissssssiiissssssiiippppppiii\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Check\n",
+    "paper_doll('Mississippi')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "2ne2SwC_jUES"
+   },
+   "source": [
+    "#### BLACKJACK: Given three integers between 1 and 11, if their sum is less than or equal to 21, return their sum. If their sum exceeds 21 *and* there's an eleven, reduce the total sum by 10. Finally, if the sum (even after adjustment) exceeds 21, return 'BUST'\n",
+    "    blackjack(5,6,7) --> 18\n",
+    "    blackjack(9,9,9) --> 'BUST'\n",
+    "    blackjack(9,9,11) --> 19"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "80hFbQWYjUES"
+   },
+   "outputs": [],
+   "source": [
+    "def blackjack(a,b,c):\n",
+    "total = a + b + c\n",
+    "if total <= 21:\n",
+    "  return total\n",
+    "if total > 21 and 11 in (a, b, c):\n",
+    "   total -= 10\n",
+    "  return total if total <= 21 else \"BUST\"\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "Q-oY3_-GjUEX",
+    "outputId": "91ecdd00-7e07-49ec-add2-c4b2e5474605"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "18\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Check\n",
+    "blackjack(5,6,7)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "A4EOwr5_jUEX",
+    "outputId": "758b9d88-b497-4494-975f-b43376480f8f"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "BUST\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Check\n",
+    "blackjack(9,9,9)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "3fB2oe2xjUEX",
+    "outputId": "c3574d5d-46f6-49e1-8cf6-c49649e41443"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "19\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Check\n",
+    "blackjack(9,9,11)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "4u8HL5GojUEX"
+   },
+   "source": [
+    "#### SUMMER OF '69: Return the sum of the numbers in the array, except ignore sections of numbers starting with a 6 and extending to the next 9 (every 6 will be followed by at least one 9). Return 0 for no numbers.\n",
+    "\n",
+    "    summer_69([1, 3, 5]) --> 9\n",
+    "    summer_69([4, 5, 6, 7, 8, 9]) --> 9\n",
+    "    summer_69([2, 1, 6, 9, 11]) --> 14"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "046Ih4hXjUEX"
+   },
+   "outputs": [],
+   "source": [
+    "def summer_69(arr):\n",
+    "total = 0\n",
+    "skip = False\n",
+    "for num in arr:\n",
+    "if num == 6:\n",
+    "skip = True\n",
+    "elif num == 9 and skip:\n",
+    "skip = False\n",
+    "elif not skip:\n",
+    "total += num\n",
+    "return total"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "_cPVSaFgjUEX",
+    "outputId": "b5845926-4171-4072-9aeb-08984be806ea"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "9\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Check\n",
+    "summer_69([1, 3, 5])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "b1oeH-kljUEX",
+    "outputId": "6c3e2aad-fc99-463a-bc5c-5fc8da6a84af"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "9\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Check\n",
+    "summer_69([4, 5, 6, 7, 8, 9])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "gmRjDlH9jUEX",
+    "outputId": "b486fc8a-1881-4288-cb92-0d152e3084d3"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "14\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Check\n",
+    "summer_69([2, 1, 6, 9, 11])"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "iIRC4dDsjUEX"
+   },
+   "source": [
+    "# CHALLENGING PROBLEMS"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "QcL3YCIdjUEX"
+   },
+   "source": [
+    "#### SPY GAME: Write a function that takes in a list of integers and returns True if it contains 007 in order\n",
+    "\n",
+    "     spy_game([1,2,4,0,0,7,5]) --> True\n",
+    "     spy_game([1,0,2,4,0,5,7]) --> True\n",
+    "     spy_game([1,7,2,0,4,5,0]) --> False\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "w9umom7pjUEX"
+   },
+   "outputs": [],
+   "source": [
+    "def spy_game(nums):\n",
+    "code = [0, 0, 7]\n",
+    "for num in nums:\n",
+    "if num == code[0]:\n",
+    "   code.pop(0)\n",
+    "if not code:\n",
+    "  return True\n",
+    "return False"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "Tqal41xTjUEX",
+    "outputId": "c8c6d246-e592-4da0-bb83-e97c1bccac03"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "True\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Check\n",
+    "spy_game([1,2,4,0,0,7,5])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "zYEs8g7_jUEY",
+    "outputId": "9a2137f0-c251-477b-8bc0-19a78442ee01"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "True\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Check\n",
+    "spy_game([1,0,2,4,0,5,7])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "FVFLbyFLjUEY",
+    "outputId": "085d16e8-f9e7-4972-f36f-e37b9f4f4347"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "False\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Check\n",
+    "spy_game([1,7,2,0,4,5,0])"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "G8jZlO2rjUEY"
+   },
+   "source": [
+    "#### COUNT PRIMES: Write a function that returns the *number* of prime numbers that exist up to and including a given number\n",
+    "    count_primes(100) --> 25\n",
+    "\n",
+    "By convention, 0 and 1 are not prime."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "_FrbLXCPjUEY"
+   },
+   "outputs": [],
+   "source": [
+    "def count_primes(num):\n",
+    "if num < 2:\n",
+    "    return 0\n",
+    "primes = [True] * (num + 1)\n",
+    "primes[0] = primes[1] = False\n",
+    "for i in range(2, int(num ** 0.5) + 1):\n",
+    "if primes[i]:\n",
+    "for j in range(i * i, num + 1, i):\n",
+    "primes[j] = False\n",
+    "return sum(primes)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "DbwzRtJmjUEY",
+    "outputId": "3be9b352-119f-4eb6-870f-76cf50082b38"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "25\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Check\n",
+    "count_primes(100)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "p2qJFuR2jUEY"
+   },
+   "source": [
+    "### Just for fun:\n",
+    "#### PRINT BIG: Write a function that takes in a single letter, and returns a 5x5 representation of that letter\n",
+    "    print_big('a')\n",
+    "    \n",
+    "    out:   *  \n",
+    "          * *\n",
+    "         *****\n",
+    "         *   *\n",
+    "         *   *\n",
+    "HINT: Consider making a dictionary of possible patterns, and mapping the alphabet to specific 5-line combinations of patterns. <br>For purposes of this exercise, it's ok if your dictionary stops at \"E\"."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true,
+    "id": "sXwSP3uHjUEY",
+    "jupyter": {
+     "outputs_hidden": true
+    }
+   },
+   "outputs": [],
+   "source": [
+    "def print_big(letter):\n",
+    "patterns = {\n",
+    "\"a\": [\" * \", \" * * \", \"\", \"* \", \" \"],\n",
+    "\"b\": [\" \", \"* \", \"* \", \"* \", \"*** \"],\n",
+    "\"c\": [\" \", \" \", \" \", \" \", \" \"],\n",
+    "\"d\": [\" \", \" \", \" \", \" \", \"*** \"],\n",
+    "\"e\": [\"\", \"* \", \"**** \", \"* \", \"\"]\n",
+    "}\n",
+    "for line in patterns.get(letter.lower(), []):\n",
+    "print(line)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true,
+    "id": "ucAPFfFwjUEY",
+    "jupyter": {
+     "outputs_hidden": true
+    }
+   },
+   "outputs": [],
+   "source": [
+    "print_big('a')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "_Xy1XeAxjUEY"
+   },
+   "source": [
+    "## Great Job!"
+   ]
+  }
+ ],
+ "metadata": {
+  "colab": {
+   "provenance": []
+  },
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.12.8"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 0
+}
+
+02_Python_statements.ipynb
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "collapsed": true,
+    "id": "zgKGLd7dk0mg"
+   },
+   "source": [
+    "# Statements Assessment Test\n",
+    "Let's test your knowledge!"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "eFyE163Hk0mi"
+   },
+   "source": [
+    "_____\n",
+    "**Use <code>for</code>, .split(), and <code>if</code> to create a Statement that will print out words that start with 's':**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true,
+    "id": "QxlKckNek0mj"
+   },
+   "outputs": [],
+   "source": [
+    "st = 'Print only the words that start with s in this sentence'"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "colab": {
+     "base_uri": "https://localhost:8080/"
+    },
+    "collapsed": true,
+    "id": "LKa56IA_k0mk",
+    "outputId": "76a777dc-fb06-4266-ffa3-5f05b4684fad"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "start\n",
+      "s\n",
+      "sentence\n"
+     ]
+    }
+   ],
+   "source": [
+    "for word in st.split():\n",
+    "if word.lower().startswith('s'):\n",
+    "          print(word)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "xFi7kqT9k0mk"
+   },
+   "source": [
+    "______\n",
+    "**Use range() to print all the even numbers from 0 to 10.**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "colab": {
+     "base_uri": "https://localhost:8080/"
+    },
+    "collapsed": true,
+    "id": "rt0BPrPek0mk",
+    "outputId": "616f2ef1-697d-4a6b-cbed-c739af3c6a33"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "0\n",
+      "2\n",
+      "4\n",
+      "6\n",
+      "8\n",
+      "10\n"
+     ]
+    }
+   ],
+   "source": [
+    "for num in range(0, 11, 2):\n",
+    "  print(num)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "cfkP8DjOk0ml"
+   },
+   "source": [
+    "___\n",
+    "**Use a List Comprehension to create a list of all numbers between 1 and 50 that are divisible by 3.**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "colab": {
+     "base_uri": "https://localhost:8080/"
+    },
+    "collapsed": true,
+    "id": "M8GnyCkfk0ml",
+    "outputId": "0666fb5b-0e8d-49c9-9ae5-af6eba479b7e"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48]\n"
+     ]
+    }
+   ],
+   "source": [
+    "div_by_3 = [num for num in range(1, 51) if num % 3 == 0]"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "oEYHtz7Rk0ml"
+   },
+   "source": [
+    "_____\n",
+    "**Go through the string below and if the length of a word is even print \"even!\"**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true,
+    "id": "ZA8IdjWRk0ml"
+   },
+   "outputs": [],
+   "source": [
+    "st = 'Print every word in this sentence that has an even number of letters'"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "colab": {
+     "base_uri": "https://localhost:8080/"
+    },
+    "collapsed": true,
+    "id": "glJUJEFik0mm",
+    "outputId": "c7187a0e-bca7-4f45-aaeb-5e8071d508ce"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "word - even!\n",
+      "in - even!\n",
+      "this - even!\n",
+      "sentence - even!\n",
+      "that - even!\n",
+      "an - even!\n",
+      "even - even!\n",
+      "number - even!\n",
+      "of - even!\n"
+     ]
+    }
+   ],
+   "source": [
+    "for word in st.split():\n",
+    "      if len(word) % 2 == 0:\n",
+    "    print('even!')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "mX_C0Cvtk0mm"
+   },
+   "source": [
+    "____\n",
+    "**Write a program that prints the integers from 1 to 100. But for multiples of three print \"Fizz\" instead of the number, and for the multiples of five print \"Buzz\". For numbers which are multiples of both three and five print \"FizzBuzz\".**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "colab": {
+     "base_uri": "https://localhost:8080/"
+    },
+    "collapsed": true,
+    "id": "q_uDK-vyk0mm",
+    "outputId": "ed1c1f64-b656-4cf4-9046-6d308dfeb584"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1\n",
+      "2\n",
+      "fizz\n",
+      "4\n",
+      "buzz\n",
+      "fizz\n",
+      "7\n",
+      "8\n",
+      "fizz\n",
+      "buzz\n",
+      "11\n",
+      "fizz\n",
+      "13\n",
+      "14\n",
+      "fizzbuzz\n",
+      "16\n",
+      "17\n",
+      "fizz\n",
+      "19\n",
+      "buzz\n",
+      "fizz\n",
+      "22\n",
+      "23\n",
+      "fizz\n",
+      "buzz\n",
+      "26\n",
+      "fizz\n",
+      "28\n",
+      "29\n",
+      "fizzbuzz\n",
+      "31\n",
+      "32\n",
+      "fizz\n",
+      "34\n",
+      "buzz\n",
+      "fizz\n",
+      "37\n",
+      "38\n",
+      "fizz\n",
+      "buzz\n",
+      "41\n",
+      "fizz\n",
+      "43\n",
+      "44\n",
+      "fizzbuzz\n",
+      "46\n",
+      "47\n",
+      "fizz\n",
+      "49\n",
+      "buzz\n",
+      "fizz\n",
+      "52\n",
+      "53\n",
+      "fizz\n",
+      "buzz\n",
+      "56\n",
+      "fizz\n",
+      "58\n",
+      "59\n",
+      "fizzbuzz\n",
+      "61\n",
+      "62\n",
+      "fizz\n",
+      "64\n",
+      "buzz\n",
+      "fizz\n",
+      "67\n",
+      "68\n",
+      "fizz\n",
+      "buzz\n",
+      "71\n",
+      "fizz\n",
+      "73\n",
+      "74\n",
+      "fizzbuzz\n",
+      "76\n",
+      "77\n",
+      "fizz\n",
+      "79\n",
+      "buzz\n",
+      "fizz\n",
+      "82\n",
+      "83\n",
+      "fizz\n",
+      "buzz\n",
+      "86\n",
+      "fizz\n",
+      "88\n",
+      "89\n",
+      "fizzbuzz\n",
+      "91\n",
+      "92\n",
+      "fizz\n",
+      "94\n",
+      "buzz\n",
+      "fizz\n",
+      "97\n",
+      "98\n",
+      "fizz\n",
+      "buzz\n"
+     ]
+    }
+   ],
+   "source": [
+    "for num in range(1, 101):\n",
+    "      if num % 3 == 0 and num % 5 == 0:\n",
+    "    print('FizzBuzz')\n",
+    "  elif num % 3 == 0:\n",
+    "    print('Fizz')\n",
+    "  elif num % 5 == 0:\n",
+    "    print('Buzz')\n",
+    "  else:\n",
+    "    print(num)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "V5zEh5qVk0mm"
+   },
+   "source": [
+    "____\n",
+    "**Use List Comprehension to create a list of the first letters of every word in the string below:**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true,
+    "id": "UiLFzd4fk0mn"
+   },
+   "outputs": [],
+   "source": [
+    "st = 'Create a list of the first letters of every word in this string'"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "colab": {
+     "base_uri": "https://localhost:8080/"
+    },
+    "collapsed": true,
+    "id": "Ql2kHfz1k0mn",
+    "outputId": "9612e63c-b7e5-46eb-e514-ae4f9532aefe"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "['C', 'a', 'l', 'o', 't', 'f', 'l', 'o', 'e', 'w', 'i', 't', 's']\n"
+     ]
+    }
+   ],
+   "source": [
+    "first_letters = [word[0] for word in st.split()]"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "d-lXyuisk0mn"
+   },
+   "source": [
+    "### Great Job!"
+   ]
+  }
+ ],
+ "metadata": {
+  "colab": {
+   "provenance": []
+  },
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.6.6"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 0
+}
+
+#03_Numpy_Exercises.ipynb
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "MbvsDuzLano5"
+   },
+   "source": [
+    "# **Working with NumPy**\n",
+    "This optional assignment is for you to practise using the NumPy library and learn how to use vectorization to speed up computations in comparision to iterative approaches.\n",
+    "\n",
+    "You only need to fill in the code between the ```< START >``` and ```< END >``` tags, the rest has been implemented for you!\n",
+    "\n",
+    "```python\n",
+    "# < START >\n",
+    "\"YOUR CODE GOES HERE!\"\n",
+    "# < END >\n",
+    "\n",
+    "```\n",
+    "\n",
+    "<!---Need to include clarification about arrays?-->\n",
+    "\n",
+    "**Start by running the below cell, to import the NumPy library.**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "GHqaQIZwaqrb"
+   },
+   "outputs": [],
+   "source": [
+    "import numpy as np"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "7_q9CV0oqiQE"
+   },
+   "source": [
+    "### **Initializating Arrays**\n",
+    "NumPy offers multiple methods to create and populate arrays\n",
+    "- Create a $2\\times3$ array identical to\n",
+    "$\\begin{bmatrix}\n",
+    "1 & 2 & 4\\\\\n",
+    "7 & 13 & 21\\\\\n",
+    "\\end{bmatrix}$, and assign it to a variable `arr`.  "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "colab": {
+     "base_uri": "https://localhost:8080/"
+    },
+    "id": "DOSodBqMsPFx",
+    "outputId": "81760911-ab85-405e-b9be-848fd4f0df80"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[[ 1  2  4]\n",
+      " [ 7 13 21]]\n",
+      "Shape: (2, 3)\n"
+     ]
+    }
+   ],
+   "source": [
+    "arr = np.array([[1, 2, 4],\n",
+    "[7, 13, 21]])"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "ow7eYNN0uqOc"
+   },
+   "source": [
+    "You should be able to see that the `shape` property of an array lets you access its dimensions.  \n",
+    "For us, this is a handy way to ensure that the dimensions of an array are what we expect, allowing us to easily debug programs."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "3sRFnmJrWY0S"
+   },
+   "source": [
+    "- Initialize a NumPy array `x` of dimensions $2\\times3$ with random values.  \n",
+    "Do not use the values of the dimensions directly, instead use the variables provided as arguments.\n",
+    "<details>\n",
+    "  <summary>Hint</summary>\n",
+    "  <a href=\"https://numpy.org/doc/stable/reference/random/generated/numpy.random.randn.html#numpy-random-randn\">np.random.randn()</a>\n",
+    "</details>"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "colab": {
+     "base_uri": "https://localhost:8080/"
+    },
+    "id": "VVrePkvxW2K9",
+    "outputId": "8d106c05-c4f5-495a-f7ff-ccfe0a71a832"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[[0.98330809 0.74678655 0.76567102]\n",
+      " [0.61631965 0.60772271 0.2082465 ]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "x = np.random.randn(arr.shape[0], arr.shape[1])"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "j7XlM8Bwchhm"
+   },
+   "source": [
+    "A few more basic methods to initialize arrays exist.\n",
+    "Feel free to read up online to complete the code snippets."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "colab": {
+     "base_uri": "https://localhost:8080/"
+    },
+    "id": "hG59Eh_edKNy",
+    "outputId": "f1a2c8bd-1f54-4d9e-d3ea-4b13aaa47b59"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[[[0. 0.]\n",
+      "  [0. 0.]\n",
+      "  [0. 0.]\n",
+      "  [0. 0.]\n",
+      "  [0. 0.]]\n",
+      "\n",
+      " [[0. 0.]\n",
+      "  [0. 0.]\n",
+      "  [0. 0.]\n",
+      "  [0. 0.]\n",
+      "  [0. 0.]]\n",
+      "\n",
+      " [[0. 0.]\n",
+      "  [0. 0.]\n",
+      "  [0. 0.]\n",
+      "  [0. 0.]\n",
+      "  [0. 0.]]\n",
+      "\n",
+      " [[0. 0.]\n",
+      "  [0. 0.]\n",
+      "  [0. 0.]\n",
+      "  [0. 0.]\n",
+      "  [0. 0.]]]\n",
+      "[[[1. 1.]\n",
+      "  [1. 1.]\n",
+      "  [1. 1.]\n",
+      "  [1. 1.]\n",
+      "  [1. 1.]]\n",
+      "\n",
+      " [[1. 1.]\n",
+      "  [1. 1.]\n",
+      "  [1. 1.]\n",
+      "  [1. 1.]\n",
+      "  [1. 1.]]\n",
+      "\n",
+      " [[1. 1.]\n",
+      "  [1. 1.]\n",
+      "  [1. 1.]\n",
+      "  [1. 1.]\n",
+      "  [1. 1.]]\n",
+      "\n",
+      " [[1. 1.]\n",
+      "  [1. 1.]\n",
+      "  [1. 1.]\n",
+      "  [1. 1.]\n",
+      "  [1. 1.]]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "ZERO_ARR = np.zeros((4, 5, 2))\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "19eX-3suIKcF"
+   },
+   "source": [
+    "You can also transpose arrays (same as with matrices), but a more general and commonly used function is the `array.reshape()` function.\n",
+    "\n",
+    "$$\n",
+    "\\begin{bmatrix}\n",
+    "a & d\\\\\n",
+    "b & e\\\\\n",
+    "c & f\\\\\n",
+    "\\end{bmatrix}\n",
+    "\\xleftarrow{\\text{.T}}\n",
+    "\\begin{bmatrix}\n",
+    "a & b & c\\\\\n",
+    "d & e & f\\\\\n",
+    "\\end{bmatrix}\n",
+    "\\xrightarrow{\\text{.reshape(3, 2)}}\n",
+    "\\begin{bmatrix}\n",
+    "a & b\\\\\n",
+    "c & d\\\\\n",
+    "e & f\\\\\n",
+    "\\end{bmatrix}\n",
+    "\\xrightarrow{\\text{.reshape(6,1)}}\n",
+    "\\begin{bmatrix}\n",
+    "a\\\\b\\\\c\\\\d\\\\e\\\\f\\\\\n",
+    "\\end{bmatrix}\n",
+    "$$\n",
+    "`reshape` is commonly used to flatten data stored in multi-dimensional arrays (ex: a 2D array representing a B/W image)\n",
+    "\n",
+    "- Try it out yourself:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "colab": {
+     "base_uri": "https://localhost:8080/"
+    },
+    "id": "72poNlj4H4dv",
+    "outputId": "b1696cde-8802-4cd4-86b2-80281aa3ca8e"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[[1 4]\n",
+      " [2 5]\n",
+      " [3 6]]\n",
+      "[[1 2 3 4 5 6]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "ONE_ARR = np.ones((4, 5, 2))\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "OmHhW0gtXn4C"
+   },
+   "source": [
+    "- Create a `y` with dimensions $3\\times1$ (column matrix), with elements $4,7$ and $11$.  \n",
+    "$$y = \\begin{bmatrix}\n",
+    "4\\\\\n",
+    "7\\\\\n",
+    "11\n",
+    "\\end{bmatrix}$$  "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "colab": {
+     "base_uri": "https://localhost:8080/"
+    },
+    "id": "_OB_fi7zW57S",
+    "outputId": "f86e5728-c296-45b5-b967-a85ece18c20c"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[[ 4]\n",
+      " [ 7]\n",
+      " [11]]\n",
+      "[[3]\n",
+      " [5]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "y_transpose = y.T\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "qQBkm2K9eMiu"
+   },
+   "source": [
+    "### **Indexing & Slicing**\n",
+    "Just like with normal arrays, you can access an element at the `(i,j)` position using `array[i][j]`.  \n",
+    "However, NumPy allows you to do the same using `array[i, j]`, and this form is more efficient and simpler to use.\n",
+    "<details>\n",
+    "<summary><i>(Optional) Why is it more efficient?</i></summary>\n",
+    "The former case is more inefficient as a new temporary array is created after the first index i, that is then indexed by j.\n",
+    "</details>\n",
+    "\n",
+    "```python\n",
+    "x = np.array([[1,3,5],[4,7,11],[5,10,20]])\n",
+    "\n",
+    "x[1][2] #11\n",
+    "x[1,2]  #11 <-- Prefer this\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "ptZtfq3dUE25"
+   },
+   "source": [
+    "Slicing is another important feature of NumPy arrays. The syntax is the same as that of slicing in Python lists.\n",
+    "  We pass the slice as\n",
+    "\n",
+    "```python\n",
+    "  sliced_array = array[start:end:step]\n",
+    "  # The second colon (:) is only needed\n",
+    "  # if you want to use a step other than 1\n",
+    "```\n",
+    "By default, `start` is 0, `end` is the array length (in that dimension), and `step` is 1.\n",
+    "Remember that `end` is not included in the slice.\n",
+    "\n",
+    "  Implement array slicing as instructed in the following examples\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "colab": {
+     "base_uri": "https://localhost:8080/"
+    },
+    "id": "Rb3_CEkYVHRV",
+    "outputId": "c9529905-c345-4c5a-c258-4cc80649701f"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[1 5 6]\n",
+      "[1 3 5 7 9]\n"
+     ]
+    }
+   ],
+   "source": [
+    "y_flat = y.reshape(-1, 1)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "MeHuSp4YHjpT"
+   },
+   "source": [
+    "A combination of indexing and slicing can be used to access rows, columns and sub-arrays of 2D arrays.\n",
+    "\n",
+    "```python\n",
+    "arr = np.array([\n",
+    "          [1, 2, 3],\n",
+    "          [4, 5, 6],\n",
+    "          [7, 8, 9]])\n",
+    "\n",
+    "print(arr[0])       #[1 2 3]\n",
+    "print(arr[:,2])     #[3 6 9]\n",
+    "print(arr[0:2,0:2]) #[[1 2]\n",
+    "                    # [4 5]]\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "colab": {
+     "base_uri": "https://localhost:8080/"
+    },
+    "id": "mvrmhMiUHjMm",
+    "outputId": "a8e635be-4b4e-46f9-e42a-73189eeaa0e2"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[[5 2]\n",
+      " [7 9]\n",
+      " [4 5]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "y = np.array([[4],\n",
+    "[7],\n",
+    "[11]])\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "3wusjBpUZ4YM"
+   },
+   "source": [
+    "###**Broadcasting**\n",
+    "\n",
+    "This feature allows for flexibility in array operations. It lets us implement highly efficient algorithms with minimal use of memory."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "colab": {
+     "base_uri": "https://localhost:8080/"
+    },
+    "id": "JMYM8LIYbKdV",
+    "outputId": "bb4a994d-72c4-4e56-a169-03ed3deef79d"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[2 3 4 5]\n",
+      "[[ 4  8 12]\n",
+      " [20 25 30]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "result = arr1 + b\n",
+    "result = arr2 * arr3"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "ZKz_znd7WfhP"
+   },
+   "source": [
+    "### **Vectorization**\n",
+    "\n",
+    "From what we've covered so far, it might not be clear as to why we need to use vectorization. To understand this, let's compare the execution times of a non-vectorized program and a vectorized one.\n",
+    "\n",
+    "Your goal is to multiply each element of the 2D arrays by 3. Implement this using both non-vectorized and vectorized approaches."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "colab": {
+     "base_uri": "https://localhost:8080/"
+    },
+    "id": "RheVdAh4WyA1",
+    "outputId": "a13528a8-f77c-4b3b-b95b-9ae336c4920d"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Time taken in non-vectorized approach: 3.810882568359375 ms\n",
+      "[[0.45250257 0.99142725 0.72326031 ... 0.99475112 0.02270081 0.79944327]\n",
+      " [0.05041321 0.45202573 0.44632776 ... 0.93182398 0.57447125 0.85665081]\n",
+      " [0.4608808  0.82261437 0.54476372 ... 0.45906391 0.0299049  0.03986204]\n",
+      " ...\n",
+      " [0.14343197 0.3636229  0.93315914 ... 0.00473515 0.39570878 0.4339602 ]\n",
+      " [0.69164416 0.82740557 0.21678247 ... 0.58503981 0.69572448 0.83998982]\n",
+      " [0.96315353 0.8211436  0.72260884 ... 0.86366287 0.4317817  0.26809839]]\n",
+      "Time taken in vectorized approach: 2.573251724243164 ms\n",
+      "[[0.45250257 0.99142725 0.72326031 ... 0.99475112 0.02270081 0.79944327]\n",
+      " [0.05041321 0.45202573 0.44632776 ... 0.93182398 0.57447125 0.85665081]\n",
+      " [0.4608808  0.82261437 0.54476372 ... 0.45906391 0.0299049  0.03986204]\n",
+      " ...\n",
+      " [0.14343197 0.3636229  0.93315914 ... 0.00473515 0.39570878 0.4339602 ]\n",
+      " [0.69164416 0.82740557 0.21678247 ... 0.58503981 0.69572448 0.83998982]\n",
+      " [0.96315353 0.8211436  0.72260884 ... 0.86366287 0.4317817  0.26809839]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "start = time.time()\n",
+    "for i in range(arr.shape[0]):\n",
+    "for j in range(arr.shape[1]):\n",
+    "arr[i, j] = arr[i, j] * 3\n",
+    "end = time.time()\n",
+    "print(\"Non-vectorized time:\", end - start)\n",
+    "\n",
+    "#Vectorized approach\n",
+    "start = time.time()\n",
+    "arr = arr * 3\n",
+    "end = time.time()\n",
+    "print(\"Vectorized time:\", end - start)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "W2FkvxAsbyzc"
+   },
+   "source": [
+    "Try playing around with the dimensions of the array. You'll find that there isn't much difference in the execution times when the dimensions are small. But in neural networks, we often deal with very large datasets and so vectorization is a very important tool."
+   ]
+  }
+ ],
+ "metadata": {
+  "colab": {
+   "provenance": []
+  },
+  "kernelspec": {
+   "display_name": "Python 3",
+   "name": "python3"
+  },
+  "language_info": {
+   "name": "python"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 0
+}
+
+04_Pandas_Exercises.ipynb
+
+
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "aQ5QC3Jj8_Q2"
+   },
+   "source": [
+    "# SF Salaries Exercise\n",
+    "\n",
+    "Welcome to a quick exercise for you to practice your pandas skills! We will be using the [SF Salaries Dataset](https://www.kaggle.com/kaggle/sf-salaries) from Kaggle! Just follow along and complete the tasks outlined in bold below. The tasks will get harder and harder as you go along."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "WukbVu5l8_Q4"
+   },
+   "source": [
+    "**Import pandas as pd.**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true,
+    "id": "YSOYfJt38_Q5"
+   },
+   "outputs": [],
+   "source": [
+    "import pandas as pd"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "mHb42eTp8_Q5"
+   },
+   "source": [
+    "**Read Salaries.csv as a dataframe called sal.**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "3fobA7j48_Q5"
+   },
+   "outputs": [],
+   "source": [
+    "sal = pd.read_csv('Salaries.csv')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "lF4NjyeM8_Q5"
+   },
+   "source": [
+    "**Check the head of the DataFrame.**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "colab": {
+     "base_uri": "https://localhost:8080/",
+     "height": 293
+    },
+    "id": "HE3nMvNR8_Q6",
+    "outputId": "d22a2aa9-fddc-4d09-e4f5-b2f214dfa65a"
+   },
+   "outputs": [
+    {
+     "data": {
+      "application/vnd.google.colaboratory.intrinsic+json": {
+       "type": "dataframe",
+       "variable_name": "sal"
+      },
+      "text/html": [
+       "\n",
+       "  <div id=\"df-fd2df16a-70ab-47d2-9841-039719811a84\" class=\"colab-df-container\">\n",
+       "    <div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>Id</th>\n",
+       "      <th>EmployeeName</th>\n",
+       "      <th>JobTitle</th>\n",
+       "      <th>BasePay</th>\n",
+       "      <th>OvertimePay</th>\n",
+       "      <th>OtherPay</th>\n",
+       "      <th>Benefits</th>\n",
+       "      <th>TotalPay</th>\n",
+       "      <th>TotalPayBenefits</th>\n",
+       "      <th>Year</th>\n",
+       "      <th>Notes</th>\n",
+       "      <th>Agency</th>\n",
+       "      <th>Status</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>1</td>\n",
+       "      <td>NATHANIEL FORD</td>\n",
+       "      <td>GENERAL MANAGER-METROPOLITAN TRANSIT AUTHORITY</td>\n",
+       "      <td>167411.18</td>\n",
+       "      <td>0.00</td>\n",
+       "      <td>400184.25</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>567595.43</td>\n",
+       "      <td>567595.43</td>\n",
+       "      <td>2011</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>San Francisco</td>\n",
+       "      <td>NaN</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>2</td>\n",
+       "      <td>GARY JIMENEZ</td>\n",
+       "      <td>CAPTAIN III (POLICE DEPARTMENT)</td>\n",
+       "      <td>155966.02</td>\n",
+       "      <td>245131.88</td>\n",
+       "      <td>137811.38</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>538909.28</td>\n",
+       "      <td>538909.28</td>\n",
+       "      <td>2011</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>San Francisco</td>\n",
+       "      <td>NaN</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>3</td>\n",
+       "      <td>ALBERT PARDINI</td>\n",
+       "      <td>CAPTAIN III (POLICE DEPARTMENT)</td>\n",
+       "      <td>212739.13</td>\n",
+       "      <td>106088.18</td>\n",
+       "      <td>16452.60</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>335279.91</td>\n",
+       "      <td>335279.91</td>\n",
+       "      <td>2011</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>San Francisco</td>\n",
+       "      <td>NaN</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3</th>\n",
+       "      <td>4</td>\n",
+       "      <td>CHRISTOPHER CHONG</td>\n",
+       "      <td>WIRE ROPE CABLE MAINTENANCE MECHANIC</td>\n",
+       "      <td>77916.00</td>\n",
+       "      <td>56120.71</td>\n",
+       "      <td>198306.90</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>332343.61</td>\n",
+       "      <td>332343.61</td>\n",
+       "      <td>2011</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>San Francisco</td>\n",
+       "      <td>NaN</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>4</th>\n",
+       "      <td>5</td>\n",
+       "      <td>PATRICK GARDNER</td>\n",
+       "      <td>DEPUTY CHIEF OF DEPARTMENT,(FIRE DEPARTMENT)</td>\n",
+       "      <td>134401.60</td>\n",
+       "      <td>9737.00</td>\n",
+       "      <td>182234.59</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>326373.19</td>\n",
+       "      <td>326373.19</td>\n",
+       "      <td>2011</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>San Francisco</td>\n",
+       "      <td>NaN</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>\n",
+       "    <div class=\"colab-df-buttons\">\n",
+       "\n",
+       "  <div class=\"colab-df-container\">\n",
+       "    <button class=\"colab-df-convert\" onclick=\"convertToInteractive('df-fd2df16a-70ab-47d2-9841-039719811a84')\"\n",
+       "            title=\"Convert this dataframe to an interactive table.\"\n",
+       "            style=\"display:none;\">\n",
+       "\n",
+       "  <svg xmlns=\"http://www.w3.org/2000/svg\" height=\"24px\" viewBox=\"0 -960 960 960\">\n",
+       "    <path d=\"M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z\"/>\n",
+       "  </svg>\n",
+       "    </button>\n",
+       "\n",
+       "  <style>\n",
+       "    .colab-df-container {\n",
+       "      display:flex;\n",
+       "      gap: 12px;\n",
+       "    }\n",
+       "\n",
+       "    .colab-df-convert {\n",
+       "      background-color: #E8F0FE;\n",
+       "      border: none;\n",
+       "      border-radius: 50%;\n",
+       "      cursor: pointer;\n",
+       "      display: none;\n",
+       "      fill: #1967D2;\n",
+       "      height: 32px;\n",
+       "      padding: 0 0 0 0;\n",
+       "      width: 32px;\n",
+       "    }\n",
+       "\n",
+       "    .colab-df-convert:hover {\n",
+       "      background-color: #E2EBFA;\n",
+       "      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);\n",
+       "      fill: #174EA6;\n",
+       "    }\n",
+       "\n",
+       "    .colab-df-buttons div {\n",
+       "      margin-bottom: 4px;\n",
+       "    }\n",
+       "\n",
+       "    [theme=dark] .colab-df-convert {\n",
+       "      background-color: #3B4455;\n",
+       "      fill: #D2E3FC;\n",
+       "    }\n",
+       "\n",
+       "    [theme=dark] .colab-df-convert:hover {\n",
+       "      background-color: #434B5C;\n",
+       "      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);\n",
+       "      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));\n",
+       "      fill: #FFFFFF;\n",
+       "    }\n",
+       "  </style>\n",
+       "\n",
+       "    <script>\n",
+       "      const buttonEl =\n",
+       "        document.querySelector('#df-fd2df16a-70ab-47d2-9841-039719811a84 button.colab-df-convert');\n",
+       "      buttonEl.style.display =\n",
+       "        google.colab.kernel.accessAllowed ? 'block' : 'none';\n",
+       "\n",
+       "      async function convertToInteractive(key) {\n",
+       "        const element = document.querySelector('#df-fd2df16a-70ab-47d2-9841-039719811a84');\n",
+       "        const dataTable =\n",
+       "          await google.colab.kernel.invokeFunction('convertToInteractive',\n",
+       "                                                    [key], {});\n",
+       "        if (!dataTable) return;\n",
+       "\n",
+       "        const docLinkHtml = 'Like what you see? Visit the ' +\n",
+       "          '<a target=\"_blank\" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'\n",
+       "          + ' to learn more about interactive tables.';\n",
+       "        element.innerHTML = '';\n",
+       "        dataTable['output_type'] = 'display_data';\n",
+       "        await google.colab.output.renderOutput(dataTable, element);\n",
+       "        const docLink = document.createElement('div');\n",
+       "        docLink.innerHTML = docLinkHtml;\n",
+       "        element.appendChild(docLink);\n",
+       "      }\n",
+       "    </script>\n",
+       "  </div>\n",
+       "\n",
+       "\n",
+       "<div id=\"df-2c0703d6-d5fb-4d00-8cd1-8ab8049b0982\">\n",
+       "  <button class=\"colab-df-quickchart\" onclick=\"quickchart('df-2c0703d6-d5fb-4d00-8cd1-8ab8049b0982')\"\n",
+       "            title=\"Suggest charts\"\n",
+       "            style=\"display:none;\">\n",
+       "\n",
+       "<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"24px\"viewBox=\"0 0 24 24\"\n",
+       "     width=\"24px\">\n",
+       "    <g>\n",
+       "        <path d=\"M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z\"/>\n",
+       "    </g>\n",
+       "</svg>\n",
+       "  </button>\n",
+       "\n",
+       "<style>\n",
+       "  .colab-df-quickchart {\n",
+       "      --bg-color: #E8F0FE;\n",
+       "      --fill-color: #1967D2;\n",
+       "      --hover-bg-color: #E2EBFA;\n",
+       "      --hover-fill-color: #174EA6;\n",
+       "      --disabled-fill-color: #AAA;\n",
+       "      --disabled-bg-color: #DDD;\n",
+       "  }\n",
+       "\n",
+       "  [theme=dark] .colab-df-quickchart {\n",
+       "      --bg-color: #3B4455;\n",
+       "      --fill-color: #D2E3FC;\n",
+       "      --hover-bg-color: #434B5C;\n",
+       "      --hover-fill-color: #FFFFFF;\n",
+       "      --disabled-bg-color: #3B4455;\n",
+       "      --disabled-fill-color: #666;\n",
+       "  }\n",
+       "\n",
+       "  .colab-df-quickchart {\n",
+       "    background-color: var(--bg-color);\n",
+       "    border: none;\n",
+       "    border-radius: 50%;\n",
+       "    cursor: pointer;\n",
+       "    display: none;\n",
+       "    fill: var(--fill-color);\n",
+       "    height: 32px;\n",
+       "    padding: 0;\n",
+       "    width: 32px;\n",
+       "  }\n",
+       "\n",
+       "  .colab-df-quickchart:hover {\n",
+       "    background-color: var(--hover-bg-color);\n",
+       "    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);\n",
+       "    fill: var(--button-hover-fill-color);\n",
+       "  }\n",
+       "\n",
+       "  .colab-df-quickchart-complete:disabled,\n",
+       "  .colab-df-quickchart-complete:disabled:hover {\n",
+       "    background-color: var(--disabled-bg-color);\n",
+       "    fill: var(--disabled-fill-color);\n",
+       "    box-shadow: none;\n",
+       "  }\n",
+       "\n",
+       "  .colab-df-spinner {\n",
+       "    border: 2px solid var(--fill-color);\n",
+       "    border-color: transparent;\n",
+       "    border-bottom-color: var(--fill-color);\n",
+       "    animation:\n",
+       "      spin 1s steps(1) infinite;\n",
+       "  }\n",
+       "\n",
+       "  @keyframes spin {\n",
+       "    0% {\n",
+       "      border-color: transparent;\n",
+       "      border-bottom-color: var(--fill-color);\n",
+       "      border-left-color: var(--fill-color);\n",
+       "    }\n",
+       "    20% {\n",
+       "      border-color: transparent;\n",
+       "      border-left-color: var(--fill-color);\n",
+       "      border-top-color: var(--fill-color);\n",
+       "    }\n",
+       "    30% {\n",
+       "      border-color: transparent;\n",
+       "      border-left-color: var(--fill-color);\n",
+       "      border-top-color: var(--fill-color);\n",
+       "      border-right-color: var(--fill-color);\n",
+       "    }\n",
+       "    40% {\n",
+       "      border-color: transparent;\n",
+       "      border-right-color: var(--fill-color);\n",
+       "      border-top-color: var(--fill-color);\n",
+       "    }\n",
+       "    60% {\n",
+       "      border-color: transparent;\n",
+       "      border-right-color: var(--fill-color);\n",
+       "    }\n",
+       "    80% {\n",
+       "      border-color: transparent;\n",
+       "      border-right-color: var(--fill-color);\n",
+       "      border-bottom-color: var(--fill-color);\n",
+       "    }\n",
+       "    90% {\n",
+       "      border-color: transparent;\n",
+       "      border-bottom-color: var(--fill-color);\n",
+       "    }\n",
+       "  }\n",
+       "</style>\n",
+       "\n",
+       "  <script>\n",
+       "    async function quickchart(key) {\n",
+       "      const quickchartButtonEl =\n",
+       "        document.querySelector('#' + key + ' button');\n",
+       "      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.\n",
+       "      quickchartButtonEl.classList.add('colab-df-spinner');\n",
+       "      try {\n",
+       "        const charts = await google.colab.kernel.invokeFunction(\n",
+       "            'suggestCharts', [key], {});\n",
+       "      } catch (error) {\n",
+       "        console.error('Error during call to suggestCharts:', error);\n",
+       "      }\n",
+       "      quickchartButtonEl.classList.remove('colab-df-spinner');\n",
+       "      quickchartButtonEl.classList.add('colab-df-quickchart-complete');\n",
+       "    }\n",
+       "    (() => {\n",
+       "      let quickchartButtonEl =\n",
+       "        document.querySelector('#df-2c0703d6-d5fb-4d00-8cd1-8ab8049b0982 button');\n",
+       "      quickchartButtonEl.style.display =\n",
+       "        google.colab.kernel.accessAllowed ? 'block' : 'none';\n",
+       "    })();\n",
+       "  </script>\n",
+       "</div>\n",
+       "\n",
+       "    </div>\n",
+       "  </div>\n"
+      ],
+      "text/plain": [
+       "   Id       EmployeeName                                        JobTitle  \\\n",
+       "0   1     NATHANIEL FORD  GENERAL MANAGER-METROPOLITAN TRANSIT AUTHORITY   \n",
+       "1   2       GARY JIMENEZ                 CAPTAIN III (POLICE DEPARTMENT)   \n",
+       "2   3     ALBERT PARDINI                 CAPTAIN III (POLICE DEPARTMENT)   \n",
+       "3   4  CHRISTOPHER CHONG            WIRE ROPE CABLE MAINTENANCE MECHANIC   \n",
+       "4   5    PATRICK GARDNER    DEPUTY CHIEF OF DEPARTMENT,(FIRE DEPARTMENT)   \n",
+       "\n",
+       "     BasePay  OvertimePay   OtherPay  Benefits   TotalPay  TotalPayBenefits  \\\n",
+       "0  167411.18         0.00  400184.25       NaN  567595.43         567595.43   \n",
+       "1  155966.02    245131.88  137811.38       NaN  538909.28         538909.28   \n",
+       "2  212739.13    106088.18   16452.60       NaN  335279.91         335279.91   \n",
+       "3   77916.00     56120.71  198306.90       NaN  332343.61         332343.61   \n",
+       "4  134401.60      9737.00  182234.59       NaN  326373.19         326373.19   \n",
+       "\n",
+       "   Year  Notes         Agency  Status  \n",
+       "0  2011    NaN  San Francisco     NaN  \n",
+       "1  2011    NaN  San Francisco     NaN  \n",
+       "2  2011    NaN  San Francisco     NaN  \n",
+       "3  2011    NaN  San Francisco     NaN  \n",
+       "4  2011    NaN  San Francisco     NaN  "
+      ]
+     },
+     "execution_count": 12,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "sal.head()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "9_1ix_-A8_Q6"
+   },
+   "source": [
+    "**Use the .info() method to find out how many entries there are.**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "colab": {
+     "base_uri": "https://localhost:8080/"
+    },
+    "id": "d-KZkudJ8_Q6",
+    "outputId": "a1fcf8cb-4593-4dab-cd08-e72a77126869"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "<class 'pandas.core.frame.DataFrame'>\n",
+      "RangeIndex: 148654 entries, 0 to 148653\n",
+      "Data columns (total 13 columns):\n",
+      " #   Column            Non-Null Count   Dtype  \n",
+      "---  ------            --------------   -----  \n",
+      " 0   Id                148654 non-null  int64  \n",
+      " 1   EmployeeName      148654 non-null  object \n",
+      " 2   JobTitle          148654 non-null  object \n",
+      " 3   BasePay           148045 non-null  float64\n",
+      " 4   OvertimePay       148650 non-null  float64\n",
+      " 5   OtherPay          148650 non-null  float64\n",
+      " 6   Benefits          112491 non-null  float64\n",
+      " 7   TotalPay          148654 non-null  float64\n",
+      " 8   TotalPayBenefits  148654 non-null  float64\n",
+      " 9   Year              148654 non-null  int64  \n",
+      " 10  Notes             0 non-null       float64\n",
+      " 11  Agency            148654 non-null  object \n",
+      " 12  Status            0 non-null       float64\n",
+      "dtypes: float64(8), int64(2), object(3)\n",
+      "memory usage: 14.7+ MB\n"
+     ]
+    }
+   ],
+   "source": [
+    "sal.info()\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "zHmHK3rx8_Q6"
+   },
+   "source": [
+    "**What is the average BasePay ?**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "colab": {
+     "base_uri": "https://localhost:8080/"
+    },
+    "id": "w1bmKAi98_Q7",
+    "outputId": "38d1158a-958d-4327-bdb6-bc4cf30ec9fc"
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "66325.4488404877"
+      ]
+     },
+     "execution_count": 16,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "sal['BasePay'].mean()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "ygbYek1C8_Q7"
+   },
+   "source": [
+    "**What is the highest amount of OvertimePay in the dataset ?**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "colab": {
+     "base_uri": "https://localhost:8080/"
+    },
+    "id": "oN8lllDL8_Q7",
+    "outputId": "ae4e012f-0684-46ed-bb6f-8916b9f825f5"
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "245131.88"
+      ]
+     },
+     "execution_count": 18,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "sal['OvertimePay'].max()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "Nu3B-6tU8_Q7"
+   },
+   "source": [
+    "**What is the job title of  JOSEPH DRISCOLL ? Note: Use all caps, otherwise you may get an answer that doesn't match up (there is also a lowercase Joseph Driscoll).**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "colab": {
+     "base_uri": "https://localhost:8080/"
+    },
+    "id": "fYorKUzg8_Q7",
+    "outputId": "55995074-b882-49b9-e404-2713c00e54d8"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "['CAPTAIN, FIRE SUPPRESSION']\n"
+     ]
+    }
+   ],
+   "source": [
+    "sal[sal['EmployeeName'] == 'JOSEPH DRISCOLL']['JobTitle']"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "dhd51uty8_Q8"
+   },
+   "source": [
+    "**How much does JOSEPH DRISCOLL make (including benefits)?**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "colab": {
+     "base_uri": "https://localhost:8080/"
+    },
+    "id": "Ju1_BPNV8_Q8",
+    "outputId": "eb187c1b-b2d2-4eb5-bf89-70a686f27ae4"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[270324.91]\n"
+     ]
+    }
+   ],
+   "source": [
+    "sal[sal['EmployeeName'] == 'JOSEPH DRISCOLL']['TotalPayBenefits']"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "Y-L-xLn_8_Q8"
+   },
+   "source": [
+    "**What is the name of highest paid person (including benefits)?**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "colab": {
+     "base_uri": "https://localhost:8080/"
+    },
+    "id": "HXkH2H2j8_Q8",
+    "outputId": "42deb66d-52b9-4321-9536-c2c970525036"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "['NATHANIEL FORD']\n"
+     ]
+    }
+   ],
+   "source": [
+    "sal.loc[sal['TotalPayBenefits'].idxmax()]['EmployeeName']"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "PXIpHn4m8_Q8"
+   },
+   "source": [
+    "**What is the name of lowest paid person (including benefits)? Do you notice something strange about how much he or she is paid?**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "colab": {
+     "base_uri": "https://localhost:8080/"
+    },
+    "id": "yBXLhXps8_Q8",
+    "outputId": "8481095f-dd0f-4240-c579-a1b20ca407db"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "['Joe Lopez']\n"
+     ]
+    }
+   ],
+   "source": [
+    "sal.loc[sal['TotalPayBenefits'].idxmin()]['EmployeeName']\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "dDIbnqAp8_Q8"
+   },
+   "source": [
+    "**What was the average (mean) BasePay of all employees per year? (2011-2014) ?**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "colab": {
+     "base_uri": "https://localhost:8080/"
+    },
+    "id": "5PDMOGI-8_Q8",
+    "outputId": "fa57fb33-3105-49cf-b310-1c310ca08bb7"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Year\n",
+      "2011    63595.956517\n",
+      "2012    65436.406857\n",
+      "2013    69630.030216\n",
+      "2014    66564.421924\n",
+      "Name: BasePay, dtype: float64\n"
+     ]
+    }
+   ],
+   "source": [
+    "sal.groupby('Year')['BasePay'].mean()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "IPp1kfew8_Q8"
+   },
+   "source": [
+    "**How many unique job titles are there?**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "colab": {
+     "base_uri": "https://localhost:8080/"
+    },
+    "id": "fMLc5Cl58_Q8",
+    "outputId": "626e0afc-0e04-4c95-d748-26f9ba4dd320"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "2159\n"
+     ]
+    }
+   ],
+   "source": [
+    "sal['JobTitle'].nunique()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "NQeI_ioJ8_Q9"
+   },
+   "source": [
+    "**What are the top 5 most common jobs?**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "colab": {
+     "base_uri": "https://localhost:8080/"
+    },
+    "id": "ilViEQWu8_Q9",
+    "outputId": "c876b470-5503-4b7a-8826-be2ba3b99e0c"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "JobTitle\n",
+      "Transit Operator                7036\n",
+      "Special Nurse                   4389\n",
+      "Registered Nurse                3736\n",
+      "Public Svc Aide-Public Works    2518\n",
+      "Police Officer 3                2421\n",
+      "Name: count, dtype: int64\n"
+     ]
+    }
+   ],
+   "source": [
+    "sal['JobTitle'].value_counts().head(5)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "BojwoNiR8_Q9"
+   },
+   "source": [
+    "**How many Job Titles were represented by only one person in 2013? (e.g. Job Titles with only one occurence in 2013?)**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "colab": {
+     "base_uri": "https://localhost:8080/"
+    },
+    "id": "_KrmwmRj8_Q9",
+    "outputId": "ceee7a91-f4da-4a45-9b17-3359dccac296"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "202\n"
+     ]
+    }
+   ],
+   "source": [
+    "sal_2013 = sal[sal['Year'] == 2013]\n",
+    "sum(sal_2013['JobTitle'].value_counts() == 1)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "I_FVeWAz8_Q9"
+   },
+   "source": [
+    "**How many people have the word Chief in their job title? (This is pretty tricky)**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true,
+    "id": "I2OdwEUH8_Q9"
+   },
+   "outputs": [],
+   "source": [
+    "sum(sal['JobTitle'].str.contains('Chief', case=False, na=False))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "IrS7E1HL8_Q9",
+    "outputId": "2570175f-dee9-4f43-9ac3-6ccb1ddd748b"
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "477"
+      ]
+     },
+     "execution_count": 21,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": []
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "42o2HxxL8_Q9"
+   },
+   "source": [
+    "**Is there a correlation between length of the Job Title string and Salary?**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "XOG6aAfv8_Q9"
+   },
+   "outputs": [],
+   "source": [
+    "sal['JobTitleLength'] = sal['JobTitle'].apply(len)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "yWetj02q8_Q-",
+    "outputId": "95010537-0ede-44f8-befd-49687ec3de78"
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>title_len</th>\n",
+       "      <th>TotalPayBenefits</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>title_len</th>\n",
+       "      <td>1.000000</td>\n",
+       "      <td>-0.036878</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>TotalPayBenefits</th>\n",
+       "      <td>-0.036878</td>\n",
+       "      <td>1.000000</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "                  title_len  TotalPayBenefits\n",
+       "title_len          1.000000         -0.036878\n",
+       "TotalPayBenefits  -0.036878          1.000000"
+      ]
+     },
+     "execution_count": 23,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "sal[['JobTitleLength', 'TotalPayBenefits']].corr()\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "v-GhY7iX8_Q-"
+   },
+   "source": [
+    "# Great Job!"
+   ]
+  }
+ ],
+ "metadata": {
+  "colab": {
+   "provenance": []
+  },
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.12.4"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 0
+}
+
+
